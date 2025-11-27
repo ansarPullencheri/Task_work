@@ -6,8 +6,10 @@
     <title>Document</title>
     <!-- jQuery (required for Slick) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
     <!-- Slick Slider CSS -->
     <link
@@ -167,49 +169,80 @@
       </div>
     </div>
 
-    <div class="service container py-5" style="height: 100vh">
-      <div class="row align-items-center">
-        <!-- LEFT - Heading -->
-        <div class="col-md-6 px-0">
-          <h1
-            class="fw-bold"
-            style="font-size: 35px; color: #193837; margin-left: 30px"
-          >
-            Innovative design <br />services for every need
-          </h1>
-        </div>
+    <div
+      class="service"
+      style="
+        width: 100%;
+        height: 100vh;
+        padding: 60px 0;
+        box-sizing: border-box;
+        background: #fff;
+      "
+    >
+      <!-- TOP CONTENT -->
+      <div
+        style="
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          padding: 0 80px;
+          box-sizing: border-box;
+        "
+      >
+        <!-- LEFT -->
+        <h1
+          style="margin: 0; font-size: 35px; color: #193837; font-weight: 700"
+        >
+          Innovative design <br />services for every need
+        </h1>
 
-        <!-- RIGHT - Paragraph -->
-        <div class="col-md-6 px-0">
-          <p style="color: #000000; margin-left: 170px; font-size: 15px">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br />
-            sed do eiusmod tempor incididunt ut labore et dolore <br />
-            magna aliqua ultrices gravida. <br /><span
-              style="color: #193837; margin-top: 10px; display: block"
-            >
-              View All Services
-            </span>
-          </p>
-        </div>
+        <!-- RIGHT -->
+        <p
+          style="
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.6;
+            text-align: right;
+          "
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br />
+          sed do eiusmod tempor incididunt ut labore et dolore <br />
+          magna aliqua ultrices gravida.
+          <br /><br />
+          <span style="color: #193837; font-weight: 600"
+            >View All Services</span
+          >
+        </p>
       </div>
-      <div class="slider" style="margin-top: 50px">
+
+      <!-- SLIDER SECTION -->
+      <div
+        class="slider"
+        style="
+          width: 100%;
+          margin-top: 60px;
+          display: flex;
+          overflow-x: auto;
+          padding-left: 80px;
+          box-sizing: border-box;
+          scroll-behavior: smooth;
+        "
+      >
+        <!-- CARD 1 -->
         <div
-          class="card"
           style="
             width: 200px;
             height: 300px;
             border-radius: 10px;
             overflow: hidden;
-            margin: 0 10px;
+            margin-right: 20px;
             position: relative;
-            background: url('Layer 16.png');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
+            background: url('Layer 16.png') center/cover no-repeat;
             flex-shrink: 0;
+            color: #fff;
           "
         >
-          <!-- Gradient overlay -->
           <div
             style="
               position: absolute;
@@ -225,35 +258,30 @@
             "
           ></div>
 
-          <!-- Text content -->
           <div style="position: absolute; bottom: 15px; left: 15px">
             <h5 style="margin: 0; font-size: 16px; font-weight: 600">
               Residential <br />interior design
             </h5>
-            <p style="margin: 5px 0 0; font-size: 12px; line-height: 1.3">
-              Lorem ipsum dolor sit amet,<br />
-              consectetur adipiscing elit, sed do
+            <p style="margin-top: 5px; font-size: 12px">
+              Lorem ipsum dolor sit amet,<br />consectetur adipiscing elit
             </p>
           </div>
         </div>
 
+        <!-- CARD 2 -->
         <div
-          class="card"
           style="
             width: 200px;
             height: 300px;
             border-radius: 10px;
             overflow: hidden;
-            margin: 0 10px;
+            margin-right: 20px;
             position: relative;
-            background: url('Layer 17.png');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
+            background: url('Layer 17.png') center/cover no-repeat;
             flex-shrink: 0;
+            color: #fff;
           "
         >
-          <!-- Gradient overlay -->
           <div
             style="
               position: absolute;
@@ -269,35 +297,30 @@
             "
           ></div>
 
-          <!-- Text content -->
           <div style="position: absolute; bottom: 15px; left: 15px">
             <h5 style="margin: 0; font-size: 16px; font-weight: 600">
               Commercial interior design
             </h5>
-            <p style="margin: 5px 0 0; font-size: 12px; line-height: 1.3">
-              Lorem ipsum dolor sit amet,<br />
-              consectetur adipiscing elit, sed do
+            <p style="margin-top: 5px; font-size: 12px">
+              Lorem ipsum dolor sit amet,<br />consectetur adipiscing elit
             </p>
           </div>
         </div>
 
+        <!-- CARD 3 -->
         <div
-          class="card"
           style="
             width: 200px;
             height: 300px;
             border-radius: 10px;
             overflow: hidden;
-            margin: 0 10px;
+            margin-right: 20px;
             position: relative;
-            background: url('Layer 18.png');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
+            background: url('Layer 18.png') center/cover no-repeat;
             flex-shrink: 0;
+            color: #fff;
           "
         >
-          <!-- Gradient overlay -->
           <div
             style="
               position: absolute;
@@ -313,417 +336,359 @@
             "
           ></div>
 
-          <!-- Text content -->
           <div style="position: absolute; bottom: 15px; left: 15px">
             <h5 style="margin: 0; font-size: 16px; font-weight: 600">
-              Furniture and <br />decor selection
+              Furniture <br />
+              & decor selection
             </h5>
-            <p style="margin: 5px 0 0; font-size: 12px; line-height: 1.3">
-              Lorem ipsum dolor sit amet, <br />
-              consectetur adipiscing elit, sed do
-            </p>
-          </div>
-        </div>
-
-        <div
-          class="card"
-          style="
-            width: 200px;
-            height: 300px;
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 0 10px;
-            position: relative;
-            background: url('Layer 17.png');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            flex-shrink: 0;
-          "
-        >
-          <!-- Gradient overlay -->
-          <div
-            style="
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              width: 100%;
-              height: 50%;
-              background: linear-gradient(
-                to top,
-                rgba(0, 0, 0, 0.7),
-                rgba(0, 0, 0, 0)
-              );
-            "
-          ></div>
-
-          <!-- Text content -->
-          <div style="position: absolute; bottom: 15px; left: 15px">
-            <h5 style="margin: 0; font-size: 16px; font-weight: 600">
-              Commercial <br />interior design
-            </h5>
-            <p style="margin: 5px 0 0; font-size: 12px; line-height: 1.3">
-              Lorem ipsum dolor sit amet, <br />consectetur adipiscing elit, sed
-              do
-            </p>
-          </div>
-        </div>
-        <div
-          class="card"
-          style="
-            width: 200px;
-            height: 300px;
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 0 10px;
-            position: relative;
-            background: url('Layer 18.png');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            flex-shrink: 0;
-          "
-        >
-          <!-- Gradient overlay -->
-          <div
-            style="
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              width: 100%;
-              height: 50%;
-              background: linear-gradient(
-                to top,
-                rgba(0, 0, 0, 0.7),
-                rgba(0, 0, 0, 0)
-              );
-            "
-          ></div>
-
-          <!-- Text content -->
-          <div style="position: absolute; bottom: 15px; left: 15px">
-            <h5 style="margin: 0; font-size: 16px; font-weight: 600">
-              Furniture and <br />decor selection
-            </h5>
-            <p style="margin: 5px 0 0; font-size: 12px; line-height: 1.3">
-              Lorem ipsum dolor sit amet, <br />
-              consectetur adipiscing elit, sed do
+            <p style="margin-top: 5px; font-size: 12px">
+              Lorem ipsum dolor sit amet,<br />consectetur adipiscing elit
             </p>
           </div>
         </div>
       </div>
     </div>
-    <div class="vision container py-5" style="height: 100vh">
-      <div class="row align-items-center">
-        <!-- LEFT - Heading -->
-        <div class="col-md-6 px-0">
-          <h1
-            class="fw-bold"
-            style="
-              font-size: 35px;
-              color: #193837;
-              margin-left: 30px;
-              margin-top: -45px;
-            "
+
+    <div
+      class="vision"
+      style="
+        width: 100%;
+        height: 100vh;
+        padding: 50px 80px;
+        box-sizing: border-box;
+        background: #fff;
+      "
+    >
+      <!-- TOP TEXT SECTION -->
+      <div
+        style="
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+        "
+      >
+        <!-- LEFT HEADING -->
+        <h1
+          style="
+            margin: 0;
+            font-size: 35px;
+            font-weight: 700;
+            color: #193837;
+            line-height: 1.2;
+          "
+        >
+          Our passion for <br />
+          design, your vision <br />
+          realized
+        </h1>
+
+        <!-- RIGHT PARAGRAPH -->
+        <p
+          style="
+            margin: 0;
+            font-size: 14px;
+            color: #000;
+            line-height: 1.7;
+            text-align: right;
+          "
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <br />
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
+          <br />
+          ipsum suspendisse ultrices gravida. Risus commodo viverra <br />
+          labore et dolore magna aliqua.
+          <br /><br />
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <br />
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          <br /><br />
+          <span style="color: #193837; font-weight: 600"
+            >View All Services</span
           >
-            Our passion for <br />
-            design, your vision <br />
-            realized
-          </h1>
-        </div>
-
-        <!-- RIGHT - Paragraph -->
-        <div class="col-md-6 px-0">
-          <p
-            style="
-              color: #000000;
-              margin-left: 120px;
-              font-size: 14px;
-              margin-top: -30px;
-            "
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            <br />eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Quis <br />ipsum suspendisse ultrices gravida. Risus commodo viverra
-            <br />
-            labore et dolore magna aliqua. <br /><br />
-
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            <br />
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.<span
-              style="color: #193837; display: block"
-            >
-              View All Services
-            </span>
-          </p>
-        </div>
-      </div>
-      <div class="image" style="margin-top: 10px; text-align: center">
-        <img
-          src="Layer 15.png"
-          alt=""
-          style="width: 98%; height: 350px; border-radius: 5px"
-        />
-      </div>
-    </div>
-    <div class="homes container py-5" style="height: 100vh">
-      <div class="row align-items-center">
-        <!-- LEFT - Heading -->
-        <div class="col-md-6 px-0">
-          <h1
-            class="fw-bold"
-            style="font-size: 35px; color: #193837; margin-left: 30px"
-          >
-            Transforming <br />houses into homes
-          </h1>
-        </div>
-
-        <!-- RIGHT - Paragraph -->
-        <div class="col-md-6 px-0">
-          <p style="color: #000000; margin-left: 170px; font-size: 15px">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br />
-            sed do eiusmod tempor incididunt ut labore et dolore <br />
-            magna aliqua ultrices gravida. <br /><span
-              style="color: #193837; margin-top: 10px; display: block"
-            >
-              View All Services
-            </span>
-          </p>
-        </div>
-      </div>
-      <div class="home" style="margin-top: 50px">
-        <div
-          class="card"
-          style="
-            width: 200px;
-            height: 300px;
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 0 10px;
-            position: relative;
-            background: url('Layer 11.png');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            flex-shrink: 0;
-          "
-        >
-          <!-- Gradient overlay -->
-          <div
-            style="
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              width: 100%;
-              height: 50%;
-              background: linear-gradient(
-                to top,
-                rgba(0, 0, 0, 0),
-                rgba(0, 0, 0, 0)
-              );
-            "
-          ></div>
-        </div>
-
-        <div
-          class="card"
-          style="
-            width: 200px;
-            height: 300px;
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 0 10px;
-            position: relative;
-            background: url('Layer 12.png');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            flex-shrink: 0;
-          "
-        >
-          <!-- Gradient overlay -->
-          <div
-            style="
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              width: 100%;
-              height: 50%;
-              background: linear-gradient(
-                to top,
-                rgba(0, 0, 0, 0),
-                rgba(0, 0, 0, 0)
-              );
-            "
-          ></div>
-        </div>
-
-        <div
-          class="card"
-          style="
-            width: 200px;
-            height: 300px;
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 0 10px;
-            position: relative;
-            background: url('Layer 13.png');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            flex-shrink: 0;
-          "
-        >
-          <!-- Gradient overlay -->
-          <div
-            style="
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              width: 100%;
-              height: 50%;
-              background: linear-gradient(
-                to top,
-                rgba(0, 0, 0, 0),
-                rgba(0, 0, 0, 0)
-              );
-            "
-          ></div>
-        </div>
-
-        <div
-          class="card"
-          style="
-            width: 200px;
-            height: 300px;
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 0 10px;
-            position: relative;
-            background: url('Layer 17.png');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            flex-shrink: 0;
-          "
-        >
-          <!-- Gradient overlay -->
-          <div
-            style="
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              width: 100%;
-              height: 50%;
-              background: linear-gradient(
-                to top,
-                rgba(0, 0, 0, 0),
-                rgba(0, 0, 0, 0)
-              );
-            "
-          ></div>
-        </div>
-        <div
-          class="card"
-          style="
-            width: 200px;
-            height: 300px;
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 0 10px;
-            position: relative;
-            background: url('Layer 13.png');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            flex-shrink: 0;
-          "
-        >
-          <!-- Gradient overlay -->
-          <div
-            style="
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              width: 100%;
-              height: 50%;
-              background: linear-gradient(
-                to top,
-                rgba(0, 0, 0, 0),
-                rgba(0, 0, 0, 0)
-              );
-            "
-          ></div>
-        </div>
-      </div>
-    </div>
-    
-<footer style="margin: 0; padding: 0; background-color: #193837;">
-  <div class="container py-5">
-    <div class="row">
-
-      <!-- Logo + Description -->
-      <div class="col-md-3">
-        <img src="Vector Smart Object (1).png" alt="" style="width: 50%; margin-bottom: 20px;" />
-        <p style="color: #ffffff; margin: 0;">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ultrices.
         </p>
       </div>
 
-      <!-- More Services -->
-      <div class="col-md-3">
-        <h5 style="color: #ffffff; margin-bottom: 20px; font-weight: bold;">More Service</h5>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 10px;"><a href="#" style="color: #ffffff; text-decoration: none;">Residential interior design</a></li>
-          <li style="margin-bottom: 10px;"><a href="#" style="color: #ffffff; text-decoration: none;">Commercial interior design</a></li>
-          <li style="margin-bottom: 10px;"><a href="#" style="color: #ffffff; text-decoration: none;">Furniture and decor selection</a></li>
-          <li style="margin-bottom: 10px;"><a href="#" style="color: #ffffff; text-decoration: none;">Architectural Design</a></li>
-        </ul>
-      </div>
-
-      <!-- Quick Links -->
-      <div class="col-md-3">
-        <h5 style="color: #ffffff; margin-bottom: 20px; font-weight: bold;">Quick links</h5>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 10px;"><a href="#" style="color: #ffffff; text-decoration: none;">Home</a></li>
-          <li style="margin-bottom: 10px;"><a href="#" style="color: #ffffff; text-decoration: none;">About Us</a></li>
-          <li style="margin-bottom: 10px;"><a href="#" style="color: #ffffff; text-decoration: none;">Services</a></li>
-          <li style="margin-bottom: 10px;"><a href="#" style="color: #FFFFFF; text-decoration: none;">Contact Us</a></li>
-        </ul>
-      </div>
-
-      <!-- Contact Us -->
-      <div class="col-md-3">
-        <h5 style="color: #ffffff; margin-bottom: 20px; font-weight: bold;">Contact Us</h5>
-        <ul style="list-style: none; padding: 0; font-size: 15px;">
-
-          <li style="margin-bottom: 15px; color: #ffffff;">
-            <i class="fa-solid fa-location-dot" style="margin-right: 10px;"></i>
-            Corporate Office-175 24th &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Street, DW-1 3567 London, UK 
-          </li>
-
-          <li style="margin-bottom: 15px; color: #ffffff;">
-            <i class="fa-solid fa-phone" style="margin-right: 10px;"></i>
-            +91 1234 567 896 <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+91 1234 567 896
-          </li>
-
-          <li style="margin-bottom: 15px; color: #ffffff;">
-            <i class="fa-solid fa-envelope" style="margin-right: 10px;"></i>
-            &nbsp;info@armchair.com
-          </li>
-
-        </ul>
+      <!-- IMAGE SECTION -->
+      <div style="width: 100%; margin-top: 40px; text-align: center">
+        <img
+          src="Layer 15.png"
+          alt=""
+          style="
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 5px;
+          "
+        />
       </div>
     </div>
-  </div>
-<div class="line" style="width: 1100px ;height: 0.5px; margin: 0 auto; background-color: #ffffff ; margin-bottom: 20px;opacity: 0.5;"></div>
-  <div class="container" style="text-align: center; padding-bottom: 20px;">
-    <p style="color: #ffffff; margin: 0; font-size: 12px;">©2023 ARMCHAIR. All Rights Reserved | Powered By Tezfy</p>
-  </div>
-</footer>
 
+    <div
+      class="homes"
+      style="
+        width: 100%;
+        height: 100vh;
+        padding: 50px 80px;
+        box-sizing: border-box;
+        background: #fff;
+      "
+    >
+      <!-- TOP TEXT ROW -->
+      <div
+        style="
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+        "
+      >
+        <!-- LEFT HEADING -->
+        <h1
+          style="
+            margin: 0;
+            font-size: 35px;
+            color: #193837;
+            font-weight: 700;
+            line-height: 1.2;
+          "
+        >
+          Transforming <br />
+          houses into homes
+        </h1>
 
+        <!-- RIGHT PARAGRAPH -->
+        <p
+          style="
+            margin: 0;
+            font-size: 15px;
+            color: #000;
+            line-height: 1.6;
+            text-align: right;
+          "
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br />
+          sed do eiusmod tempor incididunt ut labore et dolore <br />
+          magna aliqua ultrices gravida.
+          <br /><br />
+          <span style="color: #193837; font-weight: 600">
+            View All Services
+          </span>
+        </p>
+      </div>
+
+      <!-- CARD SLIDER -->
+      <div
+        style="
+          width: 100%;
+          margin-top: 50px;
+          display: flex;
+          align-items: center;
+          overflow-x: auto;
+          scrollbar-width: none;
+        "
+      >
+        <!-- CARD 1 -->
+        <div
+          style="
+            width: 200px;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-right: 20px;
+            background: url('Layer 11.png') center/cover no-repeat;
+            flex-shrink: 0;
+          "
+        ></div>
+
+        <!-- CARD 2 -->
+        <div
+          style="
+            width: 200px;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-right: 20px;
+            background: url('Layer 12.png') center/cover no-repeat;
+            flex-shrink: 0;
+          "
+        ></div>
+
+        <!-- CARD 3 -->
+        <div
+          style="
+            width: 200px;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-right: 20px;
+            background: url('Layer 13.png') center/cover no-repeat;
+            flex-shrink: 0;
+          "
+        ></div>
+
+        <!-- CARD 4 -->
+        <div
+          style="
+            width: 200px;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-right: 20px;
+            background: url('Layer 17.png') center/cover no-repeat;
+            flex-shrink: 0;
+          "
+        ></div>
+
+        <!-- CARD 5 -->
+        <div
+          style="
+            width: 200px;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-right: 20px;
+            background: url('Layer 13.png') center/cover no-repeat;
+            flex-shrink: 0;
+          "
+        ></div>
+      </div>
+    </div>
+
+    <footer
+      style="
+        width: 100%;
+        margin: 0;
+        padding: 60px 80px 20px 80px;
+        background-color: #193837;
+        box-sizing: border-box;
+      "
+    >
+      <!-- TOP 4 COLUMNS -->
+      <div
+        style="
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          flex-wrap: wrap;
+        "
+      >
+        <!-- Logo + Description -->
+        <div style="width: 23%; min-width: 220px">
+          <img
+            src="Vector Smart Object (1).png"
+            style="width: 50%; margin-bottom: 20px"
+          />
+          <p
+            style="color: #ffffff; margin: 0; font-size: 14px; line-height: 1.6"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua ultrices.
+          </p>
+        </div>
+
+        <!-- More Services -->
+        <div style="width: 23%; min-width: 220px">
+          <h5 style="color: #ffffff; margin-bottom: 20px; font-weight: 700">
+            More Services
+          </h5>
+          <ul style="list-style: none; padding: 0; margin: 0">
+            <li style="margin-bottom: 10px">
+              <a href="#" style="color: #fff; text-decoration: none"
+                >Residential interior design</a
+              >
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="#" style="color: #fff; text-decoration: none"
+                >Commercial interior design</a
+              >
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="#" style="color: #fff; text-decoration: none"
+                >Furniture and decor selection</a
+              >
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="#" style="color: #fff; text-decoration: none"
+                >Architectural Design</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div style="width: 23%; min-width: 220px">
+          <h5 style="color: #ffffff; margin-bottom: 20px; font-weight: 700">
+            Quick Links
+          </h5>
+          <ul style="list-style: none; padding: 0; margin: 0">
+            <li style="margin-bottom: 10px">
+              <a href="#" style="color: #fff; text-decoration: none">Home</a>
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="#" style="color: #fff; text-decoration: none"
+                >About Us</a
+              >
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="#" style="color: #fff; text-decoration: none"
+                >Services</a
+              >
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="#" style="color: #fff; text-decoration: none"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact Us -->
+        <div style="width: 23%; min-width: 220px">
+          <h5 style="color: #ffffff; margin-bottom: 20px; font-weight: 700">
+            Contact Us
+          </h5>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 15px">
+            <li style="margin-bottom: 15px; color: #ffffff; line-height: 1.6">
+              <i
+                class="fa-solid fa-location-dot"
+                style="margin-right: 10px"
+              ></i>
+              Corporate Office-175 24th Street, DW-1 3567 London, UK
+            </li>
+
+            <li style="margin-bottom: 15px; color: #ffffff; line-height: 1.6">
+              <i class="fa-solid fa-phone" style="margin-right: 10px"></i>
+              +91 1234 567 896 <br />
+              +91 1234 567 896
+            </li>
+
+            <li style="margin-bottom: 15px; color: #ffffff; line-height: 1.6">
+              <i class="fa-solid fa-envelope" style="margin-right: 10px"></i>
+              info@armchair.com
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- LINE -->
+      <div
+        style="
+          width: 100%;
+          height: 1px;
+          background-color: #ffffff;
+          opacity: 0.3;
+          margin: 30px 0;
+        "
+      ></div>
+
+      <!-- COPYRIGHT -->
+      <div style="width: 100%; text-align: center">
+        <p style="color: #ffffff; margin: 0; font-size: 12px">
+          ©2023 ARMCHAIR. All Rights Reserved | Powered By Tezfy
+        </p>
+      </div>
+    </footer>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
