@@ -1,647 +1,844 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Interior Design - Your Space, Your Style</title>
-    <!-- jQuery (required for Slick) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interior Design - Your Space, Your Style</title>
+  <!-- jQuery (required for Slick) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <!-- Slick Slider CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <!-- Slick Slider Theme -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+    .main {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo {
+      width: 120px;
+      max-width: 150px;
+      position: absolute;
+      top: 40px;
+      left: 5%;
+      z-index: 4;
+    }
+    .nav {
+      position: absolute;
+      top: 45px;
+      right: 5%;
+      z-index: 4;
+    }
+    .nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 40px;
+    }
+    .nav li {
+      font-size: 16px;
+      cursor: pointer;
+      transition: color 0.3s;
+      color: #333;
+    }
+    .nav li:hover {
+      color: #193837;
+    }
+    .bg-left, .bg-right, .person-img {
+      position: absolute;
+      z-index: 1;
+    }
+    .bg-left {
+      width: 28%;
+      height: 100vh;
+      object-fit: cover;
+      left: 0;
+      top: 0;
+      z-index: 2;
+    }
+    .person-img {
+      width: 35%;
+      max-width: 500px;
+      height: auto;
+      object-fit: contain;
+      top: 50%;
+      left: 8%;
+      transform: translateY(-50%);
+      z-index: 3;
+    }
+    .bg-right {
+      width: 95%;
+      height: 100vh;
+      object-fit: cover;
+      object-position: bottom;
+      right: 0;
+      top: 0;
+      z-index: 1;
+    }
+    .main-content {
+      position: absolute;
+      right: 8%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 45%;
+      max-width: 550px;
+      z-index: 4;
+    }
+    .main-content h1 {
+      margin: 0;
+      font-size: 50px;
+      color: #193837;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+    .main-content p {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #555555;
+      line-height: 1.6;
+    }
+    .main-content button {
+      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #193837;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .main-content button:hover {
+      background-color: #0f2625;
+    }
+    .section-container {
+      min-height: 100vh;
+      padding: 80px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .section-header h1 {
+      font-size: 35px;
+      color: #193837;
+      font-weight: bold;
+      line-height: 1.3;
+    }
+    .section-header p {
+      color: #000000;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .view-more {
+      color: #193837;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 15px;
+      display: inline-block;
+    }
+    .slider-container, .home-container {
+      margin-top: 50px;
+    }
+    .slider-container .card, .home-container .card {
+      height: 340px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 0 10px;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      border: none;
+    }
+    .card-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    }
+    .card-content {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+    }
+    .card-content h5 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .card-content p {
+      margin: 5px 0 0;
+      font-size: 12px;
+      line-height: 1.3;
+    }
+    .vision-image {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .vision-image img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    footer {
+      background-color: #193837;
+      color: #ffffff;
+    }
+    footer a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+    footer a:hover {
+      opacity: 0.8;
+    }
+    .footer-line {
+      width: 90%;
+      max-width: 1100px;
+      height: 0.5px;
+      margin: 0 auto 20px;
+      background-color: #ffffff;
+      opacity: 0.5;
+    }
+    .slick-prev:before, .slick-next:before {
+      color: #193837;
+      font-size: 30px;
+    }
+    .slick-dots {
+      bottom: -40px;
+    }
+    .slick-dots li button:before {
+      color: #193837;
+      font-size: 10px;
+    }
+    .slick-dots li.slick-active button:before {
+      color: #193837;
+    }
+    .slick-slide {
+      margin: 0 10px;
+    }
+    .slick-list {
+      margin: 0 -10px;
+    }
 
-    <!-- Slick Slider CSS -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
-    />
-
-    <!-- Slick Slider Theme -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
-    />
-
-    <!-- Slick Slider JS -->
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
-    ></script>
-
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        overflow-x: hidden;
-      }
-      
-      .main {
-        position: relative;
-        width: 100%;
-        min-height: 100vh;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-      }
-      
-      .logo {
-        width: 120px;
-        max-width: 10%;
-        position: absolute;
-        top: 40px;
-        left: 5%;
-        z-index: 4;
-      }
-      
-      .nav {
-        position: absolute;
-        top: 45px;
-        right: 5%;
-        z-index: 4;
-      }
-      
-      .nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        gap: 40px;
-      }
-      
-      .nav li {
-        font-size: 16px;
-        cursor: pointer;
-        transition: color 0.3s;
-      }
-      
-      .nav li:hover {
-        color: #193837;
-      }
-      
-      .bg-left {
-        width: 28%;
-        height: 100vh;
-        object-fit: cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-      }
-      
-      .person-img {
-        width: 35%;
-        max-width: 500px;
-        height: auto;
-        object-fit: contain;
-        position: absolute;
-        top: 50%;
-        left: 8%;
-        transform: translateY(-50%);
-        z-index: 3;
-        padding-right: 30px;
-      }
-      
-      .bg-right {
-        width: 95%;
-        height: 100vh;
-        object-fit: cover;
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 0;
-      }
-      
+    /* Tablet Landscape (1024px - 1199px) */
+    @media (max-width: 1199px) {
       .main-content {
-        position: absolute;
-        right: 15%;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 45%;
-        max-width: 500px;
-        z-index: 4;
+        width: 48%;
+        right: 6%;
       }
-      
       .main-content h1 {
-        margin: 0;
-        font-size: clamp(32px, 5vw, 50px);
-        color: #193837;
-        line-height: 1.2;
-        font-weight: 800;
+        font-size: 42px;
       }
-      
       .main-content p {
-        margin-top: 20px;
-        font-size: clamp(14px, 1.5vw, 18px);
-        color: #555555;
-        line-height: 1.6;
-      }
-      
-      .main-content button {
-        margin-top: 20px;
-        padding: 15px 30px;
         font-size: 16px;
-        color: #fff;
-        background-color: #193837;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
       }
-      
-      .main-content button:hover {
-        background-color: #0f2625;
+      .person-img {
+        width: 38%;
       }
-      
-      .section-container {
-        min-height: 100vh;
-        padding: 80px 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-      
       .section-header h1 {
-        font-size: clamp(28px, 4vw, 35px);
-        color: #193837;
-        font-weight: bold;
+        font-size: 32px;
       }
-      
-      .section-header p {
-        color: #000000;
-        font-size: clamp(13px, 1.2vw, 15px);
-        line-height: 1.6;
+    }
+
+    /* Tablet Portrait (768px - 1023px) */
+    @media (max-width: 1023px) {
+      .logo {
+        width: 100px;
+        top: 30px;
       }
-      
-      .view-more {
-        color: #193837;
-        font-weight: 600;
-        cursor: pointer;
-        margin-top: 10px;
-        display: inline-block;
+      .nav {
+        top: 35px;
       }
-      
-      .slider-container, .home-container {
-        margin-top: 50px;
+      .nav ul {
+        gap: 25px;
       }
-      
-      .slider-container .card, .home-container .card {
-        height: 340px;
-        border-radius: 10px;
-        overflow: hidden;
-        margin: 0 10px;
-        position: relative;
-        background-size: cover;
-        background-position: center;
-        color: #fff;
+      .nav li {
+        font-size: 14px;
       }
-      
-      .card-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 50%;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+      .main-content {
+        width: 52%;
+        right: 5%;
       }
-      
-      .card-content {
-        position: absolute;
-        bottom: 15px;
-        left: 15px;
+      .main-content h1 {
+        font-size: 38px;
       }
-      
-      .card-content h5 {
-        margin: 0;
-        font-size: 16px;
-        font-weight: 600;
+      .main-content p {
+        font-size: 15px;
       }
-      
-      .card-content p {
-        margin: 5px 0 0;
-        font-size: 12px;
-        line-height: 1.3;
+      .person-img {
+        width: 42%;
+        left: 5%;
       }
-      
-      .vision-image {
-        margin-top: 30px;
-        text-align: center;
+      .section-container {
+        min-height: auto;
+        padding: 70px 0;
       }
-      
-      .vision-image img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        max-height: 400px;
-        object-fit: cover;
-        border-radius: 5px;
-      }
-      
-      footer {
-        background-color: #193837;
-        color: #ffffff;
-      }
-      
-      footer a {
-        color: #ffffff;
-        text-decoration: none;
-        transition: opacity 0.3s;
-      }
-      
-      footer a:hover {
-        opacity: 0.8;
-      }
-      
-      .footer-line {
-        width: 90%;
-        max-width: 1100px;
-        height: 0.5px;
-        margin: 0 auto 20px;
-        background-color: #ffffff;
-        opacity: 0.5;
-      }
-      
-      /* Slick slider customization */
-      .slick-prev:before,
-      .slick-next:before {
-        color: #193837;
+      .section-header h1 {
         font-size: 30px;
       }
-      
-      .slick-dots {
-        bottom: -40px;
+      .section-header p {
+        font-size: 14px;
       }
-      
-      .slick-dots li button:before {
-        color: #193837;
+      .slider-container .card, .home-container .card {
+        height: 320px;
+      }
+    }
+
+    /* Mobile Landscape/Small Tablet (576px - 767px) */
+    @media (max-width: 767px) {
+      .logo {
+        width: 80px;
+        top: 20px;
+        left: 4%;
+      }
+      .nav {
+        top: 25px;
+        right: 4%;
+      }
+      .nav ul {
+        gap: 15px;
+      }
+      .nav li {
+        font-size: 12px;
+      }
+      .main {
+        min-height: 100vh;
+      }
+      .bg-left {
+        display: none;
+      }
+      .bg-right {
+        display: none;
+      }
+      .person-img {
+        display: block;
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: none;
+        z-index: 1;
+      }
+      .main-content {
+        position: relative;
+        width: 85%;
+        max-width: 100%;
+        margin: 0 auto;
+        right: auto;
+        top: auto;
+        transform: none;
+        padding: 140px 0 60px;
+        text-align: center;
+      }
+      .main-content h1 {
+        font-size: 34px;
+      }
+      .main-content p {
+        font-size: 15px;
+        margin-top: 18px;
+      }
+      .main-content button {
+        padding: 13px 28px;
+        font-size: 15px;
+      }
+      .section-container {
+        padding: 60px 0;
+      }
+      .section-header {
+        text-align: center;
+      }
+      .section-header h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+      .section-header p {
+        font-size: 14px;
+      }
+      .slider-container, .home-container {
+        margin-top: 40px;
+        padding: 0 20px;
+      }
+      .slider-container .card, .home-container .card {
+        height: 450px;
+      }
+      .vision-image img {
+        max-height: 320px;
+      }
+      footer .col-md-3 {
+        margin-bottom: 35px;
+        text-align: center;
+      }
+    }
+
+    /* Mobile Portrait (480px - 575px) */
+    @media (max-width: 575px) {
+      .logo {
+        width: 70px;
+        top: 18px;
+        left: 3%;
+      }
+      .nav {
+        top: 22px;
+        right: 3%;
+      }
+      .nav ul {
+        gap: 12px;
+      }
+      .nav li {
+        font-size: 11px;
+      }
+      .main {
+        min-height: 90vh;
+      }
+      .main-content {
+        width: 90%;
+        padding: 120px 0 50px;
+      }
+      .main-content h1 {
+        font-size: 30px;
+      }
+      .main-content p {
+        font-size: 14px;
+        margin-top: 15px;
+      }
+      .main-content button {
+        padding: 12px 25px;
+        font-size: 14px;
+        margin-top: 18px;
+      }
+      .section-container {
+        padding: 50px 0;
+      }
+      .section-header h1 {
+        font-size: 26px;
+        margin-bottom: 15px;
+      }
+      .section-header p {
+        font-size: 13px;
+      }
+      .slider-container, .home-container {
+        margin-top: 35px;
+        padding: 0 20px;
+      }
+      .slider-container .card, .home-container .card {
+        height: 420px;
+        margin: 0 8px;
+      }
+      .slick-slide {
+        margin: 0 8px;
+      }
+      .slick-list {
+        margin: 0 -8px;
+      }
+      .card-content h5 {
+        font-size: 15px;
+      }
+      .card-content p {
+        font-size: 11px;
+      }
+      .vision-image img {
+        max-height: 280px;
+      }
+      .slick-dots {
+        bottom: -35px;
+      }
+      footer {
+        font-size: 14px;
+      }
+      footer h5 {
+        font-size: 17px;
+      }
+      footer .col-md-3 {
+        margin-bottom: 30px;
+      }
+    }
+
+    /* Small Mobile (400px - 479px) */
+    @media (max-width: 479px) {
+      .logo {
+        width: 65px;
+        top: 15px;
+      }
+      .nav ul {
+        gap: 10px;
+      }
+      .nav li {
         font-size: 10px;
       }
-      
-      .slick-dots li.slick-active button:before {
-        color: #193837;
+      .main {
+        min-height: 80vh;
       }
-
-      /* Fix for slider spacing */
+      .main-content {
+        padding: 110px 0 45px;
+      }
+      .main-content h1 {
+        font-size: 26px;
+      }
+      .main-content p {
+        font-size: 13px;
+        margin-top: 12px;
+      }
+      .main-content button {
+        padding: 11px 22px;
+        font-size: 13px;
+      }
+      .section-container {
+        padding: 45px 0;
+      }
+      .section-header h1 {
+        font-size: 24px;
+      }
+      .section-header p {
+        font-size: 13px;
+      }
+      .slider-container .card, .home-container .card {
+        height: 400px;
+        margin: 0 6px;
+      }
       .slick-slide {
-        margin: 0 10px;
+        margin: 0 6px;
       }
-
       .slick-list {
-        margin: 0 -10px;
+        margin: 0 -6px;
       }
-      
-      @media (max-width: 992px) {
-        .main-content {
-          right: 5%;
-          max-width: 400px;
-        }
-        
-        .person-img {
-          width: 40%;
-          left: 5%;
-        }
-        
-        .section-header .col-md-6 {
-          text-align: center;
-          margin-bottom: 20px;
-        }
-        
-        .section-header p {
-          margin-left: 0 !important;
-        }
+      .card-content h5 {
+        font-size: 14px;
       }
-      
-      @media (max-width: 768px) {
-        .nav ul {
-          gap: 20px;
-        }
-        
-        .nav li {
-          font-size: 14px;
-        }
-        
-        .main-content {
-          width: 90%;
-          right: 5%;
-          left: 5%;
-        }
-        
-        .person-img {
-          display: none;
-        }
-        
-        .slider-container .card, .home-container .card {
-          height: 270px;
-        }
+      .card-content p {
+        font-size: 10px;
       }
-      
-      @media (max-width: 576px) {
-        .logo {
-          width: 80px;
-        }
-        
-        .nav ul {
-          gap: 15px;
-        }
-        
-        .nav li {
-          font-size: 12px;
-        }
-        
-        .section-container {
-          padding: 60px 0;
-        }
+      .vision-image img {
+        max-height: 250px;
       }
-    </style>
-  </head>
-  <body>
-    <!-- Hero Section -->
-    <div class="main">
-      <!-- Logo -->
-      <img src="https://via.placeholder.com/120x60/193837/ffffff?text=LOGO" class="logo" alt="Logo" />
+      footer {
+        font-size: 13px;
+      }
+      footer h5 {
+        font-size: 16px;
+      }
+    }
 
-      <!-- Navigation -->
-      <div class="nav">
-        <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Services</li>
-          <li>Contact</li>
-        </ul>
+    /* Extra Small Mobile (<400px) */
+    @media (max-width: 399px) {
+      .logo {
+        width: 60px;
+        top: 12px;
+      }
+      .nav {
+        top: 18px;
+      }
+      .nav ul {
+        gap: 8px;
+      }
+      .nav li {
+        font-size: 9px;
+      }
+      .main {
+        min-height: 70vh;
+      }
+      .main-content {
+        width: 92%;
+        padding: 100px 0 40px;
+      }
+      .main-content h1 {
+        font-size: 24px;
+      }
+      .main-content p {
+        font-size: 12px;
+        margin-top: 10px;
+      }
+      .main-content button {
+        padding: 10px 20px;
+        font-size: 12px;
+        margin-top: 15px;
+      }
+      .section-container {
+        padding: 40px 0;
+      }
+      .section-header h1 {
+        font-size: 22px;
+      }
+      .section-header p {
+        font-size: 12px;
+      }
+      .slider-container .card, .home-container .card {
+        height: 380px;
+        margin: 0 5px;
+      }
+      .slick-slide {
+        margin: 0 5px;
+      }
+      .slick-list {
+        margin: 0 -5px;
+      }
+      .card-content h5 {
+        font-size: 13px;
+      }
+      .card-content p {
+        font-size: 10px;
+      }
+      .vision-image img {
+        max-height: 220px;
+      }
+      footer {
+        font-size: 12px;
+      }
+      footer h5 {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <div class="main">
+    <img src="Vector Smart Object.png" class="logo" alt="Logo" />
+    <div class="nav">
+      <ul>
+        <li>Home</li>
+        <li>About Us</li>
+        <li>Services</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+    <img src="Layer 2.png" class="bg-left" alt="" />
+    <img src="Layer 24.png" class="person-img" alt="" />
+    <img src="Layer 5.png" class="bg-right" alt="" />
+    <div class="main-content">
+      <h1>Your Space, Your Signature Style</h1>
+      <p>
+        Discover bespoke interior design solutions that reflect your unique
+        taste and lifestyle. Let's create a space that feels like home.
+      </p>
+      <button>Get Started</button>
+    </div>
+  </div>
+
+  <!-- Services Section -->
+  <div class="service container section-container">
+    <div class="row align-items-center section-header">
+      <div class="col-md-6 px-3 mb-4 mb-md-0">
+        <h1>Innovative design<br />services for every need</h1>
       </div>
-
-      <!-- Background Images -->
-      <img src="https://via.placeholder.com/400x800/e8d5c4" class="bg-left" alt="" />
-      <img src="https://via.placeholder.com/500x700/cccccc?text=Person" class="person-img" alt="" />
-      <img src="https://via.placeholder.com/1400x800/f5f0eb" class="bg-right" alt="" />
-
-      <!-- Main Content -->
-      <div class="main-content">
-        <h1>Your Space, Your Signature Style</h1>
+      <div class="col-md-6 px-3">
         <p>
-          Discover bespoke interior design solutions that reflect your unique
-          taste and lifestyle. Let's create a space that feels like home.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua ultrices gravida.
+          <span class="view-more d-block">View All Services</span>
         </p>
-        <button>Get Started</button>
       </div>
     </div>
-
-    <!-- Services Section -->
-    <div class="service container section-container">
-      <div class="row align-items-center section-header">
-        <div class="col-md-6 px-3">
-          <h1>Innovative design<br />services for every need</h1>
+    <div class="slider-container">
+      <div class="card" style="background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=500');">
+        <div class="card-overlay"></div>
+        <div class="card-content">
+          <h5>Residential<br />interior design</h5>
+          <p>Lorem ipsum dolor sit amet,<br />consectetur adipiscing elit, sed do</p>
         </div>
-        <div class="col-md-6 px-3">
-          <p>
+      </div>
+      <div class="card" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=500');">
+        <div class="card-overlay"></div>
+        <div class="card-content">
+          <h5>Commercial interior design</h5>
+          <p>Lorem ipsum dolor sit amet,<br />consectetur adipiscing elit, sed do</p>
+        </div>
+      </div>
+      <div class="card" style="background-image: url('https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=500');">
+        <div class="card-overlay"></div>
+        <div class="card-content">
+          <h5>Furniture and<br />decor selection</h5>
+          <p>Lorem ipsum dolor sit amet,<br />consectetur adipiscing elit, sed do</p>
+        </div>
+      </div>
+      <div class="card" style="background-image: url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=500');">
+        <div class="card-overlay"></div>
+        <div class="card-content">
+          <h5>Space Planning</h5>
+          <p>Lorem ipsum dolor sit amet,<br />consectetur adipiscing elit, sed do</p>
+        </div>
+      </div>
+      <div class="card" style="background-image: url('https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=500');">
+        <div class="card-overlay"></div>
+        <div class="card-content">
+          <h5>Lighting Design</h5>
+          <p>Lorem ipsum dolor sit amet,<br />consectetur adipiscing elit, sed do</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vision Section -->
+  <div class="vision container section-container">
+    <div class="row align-items-center section-header">
+      <div class="col-md-6 px-3 mb-4 mb-md-0">
+        <h1>Our passion for<br />design, your vision<br />realized</h1>
+      </div>
+      <div class="col-md-6 px-3">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
+          ipsum suspendisse ultrices gravida. Risus commodo viverra
+          labore et dolore magna aliqua.<br /><br />
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          <span class="view-more d-block">View All Services</span>
+        </p>
+      </div>
+    </div>
+    <div class="vision-image">
+      <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200" alt="Vision" />
+    </div>
+  </div>
+
+  <!-- Homes Section -->
+  <div class="homes container section-container">
+    <div class="row align-items-center section-header">
+      <div class="col-md-6 px-3 mb-4 mb-md-0">
+        <h1>Transforming<br />houses into homes</h1>
+      </div>
+      <div class="col-md-6 px-3">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua ultrices gravida.
+          <span class="view-more d-block">View All Services</span>
+        </p>
+      </div>
+    </div>
+    <div class="home-container">
+      <div class="card" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500');"></div>
+      <div class="card" style="background-image: url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=500');"></div>
+      <div class="card" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500');"></div>
+      <div class="card" style="background-image: url('https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=500');"></div>
+      <div class="card" style="background-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=500');"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-3 mb-4">
+          <img src="https://via.placeholder.com/100x50/ffffff/193837?text=LOGO" alt="Logo" style="width: 50%; margin-bottom: 20px;" />
+          <p style="margin: 0;">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua ultrices gravida.
-            <span class="view-more d-block">View All Services</span>
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ultrices.
           </p>
         </div>
-      </div>
-      
-      <div class="slider-container">
-        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=500');">
-          <div class="card-overlay"></div>
-          <div class="card-content">
-            <h5>Residential<br />interior design</h5>
-            <p>Lorem ipsum dolor sit amet,<br />consectetur adipiscing elit, sed do</p>
-          </div>
+        <div class="col-md-3 mb-4">
+          <h5 style="margin-bottom: 20px; font-weight: bold;">More Service</h5>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 10px;"><a href="#">Residential interior design</a></li>
+            <li style="margin-bottom: 10px;"><a href="#">Commercial interior design</a></li>
+            <li style="margin-bottom: 10px;"><a href="#">Furniture and decor selection</a></li>
+            <li style="margin-bottom: 10px;"><a href="#">Architectural Design</a></li>
+          </ul>
         </div>
-
-        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=500');">
-          <div class="card-overlay"></div>
-          <div class="card-content">
-            <h5>Commercial interior design</h5>
-            <p>Lorem ipsum dolor sit amet,<br />consectetur adipiscing elit, sed do</p>
-          </div>
+        <div class="col-md-3 mb-4">
+          <h5 style="margin-bottom: 20px; font-weight: bold;">Quick links</h5>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 10px;"><a href="#">Home</a></li>
+            <li style="margin-bottom: 10px;"><a href="#">About Us</a></li>
+            <li style="margin-bottom: 10px;"><a href="#">Services</a></li>
+            <li style="margin-bottom: 10px;"><a href="#">Contact Us</a></li>
+          </ul>
         </div>
-
-        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=500');">
-          <div class="card-overlay"></div>
-          <div class="card-content">
-            <h5>Furniture and<br />decor selection</h5>
-            <p>Lorem ipsum dolor sit amet,<br />consectetur adipiscing elit, sed do</p>
-          </div>
-        </div>
-
-        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=500');">
-          <div class="card-overlay"></div>
-          <div class="card-content">
-            <h5>Space Planning</h5>
-            <p>Lorem ipsum dolor sit amet,<br />consectetur adipiscing elit, sed do</p>
-          </div>
-        </div>
-
-        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=500');">
-          <div class="card-overlay"></div>
-          <div class="card-content">
-            <h5>Lighting Design</h5>
-            <p>Lorem ipsum dolor sit amet,<br />consectetur adipiscing elit, sed do</p>
-          </div>
+        <div class="col-md-3 mb-4">
+          <h5 style="margin-bottom: 20px; font-weight: bold;">Contact Us</h5>
+          <ul style="list-style: none; padding: 0; font-size: 15px;">
+            <li style="margin-bottom: 15px;">
+              <i class="fa-solid fa-location-dot" style="margin-right: 10px;"></i>
+              Corporate Office-175 24th Street, DW-1 3567 London, UK
+            </li>
+            <li style="margin-bottom: 15px;">
+              <i class="fa-solid fa-phone" style="margin-right: 10px;"></i>
+              +91 1234 567 896<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+91 1234 567 896
+            </li>
+            <li style="margin-bottom: 15px;">
+              <i class="fa-solid fa-envelope" style="margin-right: 10px;"></i>
+              <a href="mailto:info@armchair.com">info@armchair.com</a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-
-    <!-- Vision Section -->
-    <div class="vision container section-container">
-      <div class="row align-items-center section-header">
-        <div class="col-md-6 px-3">
-          <h1>Our passion for<br />design, your vision<br />realized</h1>
-        </div>
-        <div class="col-md-6 px-3">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-            ipsum suspendisse ultrices gravida. Risus commodo viverra
-            labore et dolore magna aliqua.<br /><br />
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            <span class="view-more d-block">View All Services</span>
-          </p>
-        </div>
-      </div>
-      
-      <div class="vision-image">
-        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200" alt="Vision" />
-      </div>
+    <div class="footer-line"></div>
+    <div class="container text-center pb-3">
+      <p style="margin: 0; font-size: 12px;">©2023 ARMCHAIR. All Rights Reserved | Powered By Tezfy</p>
     </div>
+  </footer>
 
-    <!-- Homes Section -->
-    <div class="homes container section-container">
-      <div class="row align-items-center section-header">
-        <div class="col-md-6 px-3">
-          <h1>Transforming<br />houses into homes</h1>
-        </div>
-        <div class="col-md-6 px-3">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua ultrices gravida.
-            <span class="view-more d-block">View All Services</span>
-          </p>
-        </div>
-      </div>
-      
-      <div class="home-container">
-        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500');"></div>
-        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=500');"></div>
-        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500');"></div>
-        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=500');"></div>
-        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=500');"></div>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-      <div class="container py-5">
-        <div class="row">
-          <div class="col-md-3 mb-4">
-            <img src="https://via.placeholder.com/100x50/ffffff/193837?text=LOGO" alt="Logo" style="width: 50%; margin-bottom: 20px;" />
-            <p style="margin: 0;">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ultrices.
-            </p>
-          </div>
-
-          <div class="col-md-3 mb-4">
-            <h5 style="margin-bottom: 20px; font-weight: bold;">More Service</h5>
-            <ul style="list-style: none; padding: 0;">
-              <li style="margin-bottom: 10px;"><a href="#">Residential interior design</a></li>
-              <li style="margin-bottom: 10px;"><a href="#">Commercial interior design</a></li>
-              <li style="margin-bottom: 10px;"><a href="#">Furniture and decor selection</a></li>
-              <li style="margin-bottom: 10px;"><a href="#">Architectural Design</a></li>
-            </ul>
-          </div>
-
-          <div class="col-md-3 mb-4">
-            <h5 style="margin-bottom: 20px; font-weight: bold;">Quick links</h5>
-            <ul style="list-style: none; padding: 0;">
-              <li style="margin-bottom: 10px;"><a href="#">Home</a></li>
-              <li style="margin-bottom: 10px;"><a href="#">About Us</a></li>
-              <li style="margin-bottom: 10px;"><a href="#">Services</a></li>
-              <li style="margin-bottom: 10px;"><a href="#">Contact Us</a></li>
-            </ul>
-          </div>
-
-          <div class="col-md-3 mb-4">
-            <h5 style="margin-bottom: 20px; font-weight: bold;">Contact Us</h5>
-            <ul style="list-style: none; padding: 0; font-size: 15px;">
-              <li style="margin-bottom: 15px;">
-                <i class="fa-solid fa-location-dot" style="margin-right: 10px;"></i>
-                Corporate Office-175 24th Street, DW-1 3567 London, UK
-              </li>
-              <li style="margin-bottom: 15px;">
-                <i class="fa-solid fa-phone" style="margin-right: 10px;"></i>
-                +91 1234 567 896<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+91 1234 567 896
-              </li>
-              <li style="margin-bottom: 15px;">
-                <i class="fa-solid fa-envelope" style="margin-right: 10px;"></i>
-                info@armchair.com
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      
-      <div class="footer-line"></div>
-      
-      <div class="container text-center pb-3">
-        <p style="margin: 0; font-size: 12px;">©2023 ARMCHAIR. All Rights Reserved | Powered By Tezfy</p>
-      </div>
-    </footer>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz4YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
-    
-    <script>
-      $(document).ready(function () {
-        // Initialize services slider
-        $(".slider-container").slick({
-          dots: true,
-          infinite: true,
-          speed: 500,
-          slidesToShow: 4,
-          slidesToScroll: 1,
-          autoplay: true,
-          autoplaySpeed: 3000,
-          arrows: false,
-          responsive: [
-            {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 3,
-                slidesToScroll: 1
-              }
-            },
-            {
-              breakpoint: 768,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1
-              }
-            },
-            {
-              breakpoint: 480,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-              }
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz4YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <!-- Slick JS -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(".slider-container, .home-container").slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        arrows: false,
+        swipe: true,
+        touchMove: true,
+        adaptiveHeight: false,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1
             }
-          ]
-        });
-
-        // Initialize homes slider
-        $(".home-container").slick({
-          dots: true,
-          infinite: true,
-          speed: 500,
-          slidesToShow: 4,
-          slidesToScroll: 1,
-          autoplay: true,
-          autoplaySpeed: 3000,
-          arrows: false,
-          responsive: [
-            {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 3,
-                slidesToScroll: 1
-              }
-            },
-            {
-              breakpoint: 768,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1
-              }
-            },
-            {
-              breakpoint: 480,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-              }
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1
             }
-          ]
-        });
+          },
+          {
+            breakpoint: 576,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              dots: true
+            }
+          }
+        ]
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
 </html>
