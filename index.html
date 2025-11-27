@@ -96,6 +96,7 @@
       font-size: 16px;
       font-weight: 600;
       color: #193837;
+      padding-right: 50px; /* Match right-content padding */
     }
 
     .nav ul li {
@@ -181,9 +182,11 @@
       .nav {
         top: 30px;
       }
-      
       .left-image .logo-on-image {
         margin-right: 200px;
+      }
+      .nav ul {
+        padding-right: 50px; /* Ensures same gap as .right-content */
       }
     }
 
@@ -192,7 +195,6 @@
       .main-content h1 {
         font-size: 42px;
       }
-      
       .left-bg {
         width: 35%;
       }
@@ -207,60 +209,49 @@
         padding: 0;
         position: relative;
       }
-      
       .left-bg {
         display: none;
       }
-      
       .left-image, .right-content { 
         width: 100%; 
       }
-      
       .left-image {
         height: auto;
         padding: 20px;
         min-height: auto;
         justify-content: flex-start;
       }
-      
       .left-image .logo-on-image {
         margin: 0;
         width: 100px;
         align-self: flex-start;
         position: relative;
       }
-      
       .left-image img.person {
         width: 90%;
         max-width: 350px;
         margin-top: 100px;
       }
-      
       .right-content {
         padding: 20px;
         position: static;
       }
-      
       .main-content { 
         margin-top: 20px; 
         padding: 0;
         margin-bottom: 30px;
         max-width: 100%;
       }
-      
       .main-content h1 {
         font-size: 32px;
       }
-      
       .main-content p {
         font-size: 16px;
       }
-      
       .main-content button {
         width: 100%;
         padding: 12px;
       }
-      
       .nav { 
         position: absolute;
         top: 20px;
@@ -268,11 +259,9 @@
         margin-bottom: 0;
         z-index: 100;
       }
-      
       .hamburger {
         display: flex;
       }
-      
       .nav ul {
         position: fixed;
         top: 0;
@@ -289,16 +278,13 @@
         transition: right 0.3s ease;
         box-shadow: -5px 0 15px rgba(0,0,0,0.2);
       }
-      
       .nav ul.active {
         right: 0;
       }
-      
       .nav ul li {
         color: #fff;
         padding: 10px 20px;
       }
-      
       .nav ul li:hover {
         color: #e0e0e0;
       }
@@ -601,19 +587,15 @@
 </head>
 <body>
   <div class="hero">
-
     <!-- GRAY BACKGROUND STRIPE -->
     <div class="left-bg"></div>
-
     <!-- LEFT IMAGE + LOGO -->
     <div class="left-image">
       <img src="img/Vector Smart Object.png" class="logo-on-image" alt="Logo">
       <img src="img/Layer 24.png" class="person" alt="Person Image">
     </div>
-
     <!-- RIGHT CONTENT -->
     <div class="right-content">
-
       <!-- NAVIGATION -->
       <div class="nav">
         <div class="hamburger" onclick="toggleMenu()">
@@ -628,20 +610,15 @@
           <li onclick="toggleMenu()">Contact</li>
         </ul>
       </div>
-
       <div class="main-content">
         <h1>Your Space, Your Signature Style</h1>
-
         <p>
           Discover bespoke interior design solutions that reflect your unique
           taste and lifestyle. Let's create a space that feels like home.
         </p>
-
         <button>Get Started</button>
       </div>
-
     </div>
-
   </div>
   <!-- Services Section -->
   <div class="service container section-container">
@@ -696,7 +673,6 @@
       </div>
     </div>
   </div>
-
   <!-- Vision Section -->
   <div class="vision container section-container">
     <div class="row align-items-center section-header">
@@ -719,7 +695,6 @@
       <img src="img/Layer 15.png" alt="Vision" />
     </div>
   </div>
-
   <!-- Homes Section -->
   <div class="homes container section-container">
     <div class="row align-items-center section-header">
@@ -744,7 +719,6 @@
       <div class="card" style="background-image: url(img/Layer\ 13.png);"></div>
     </div>
   </div>
-
   <!-- Footer -->
   <footer>
     <div class="container py-5">
@@ -798,7 +772,6 @@
       <p style="margin: 0; font-size: 12px;">©2023 ARMCHAIR. All Rights Reserved | Powered By Tezfy</p>
     </div>
   </footer>
-
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz4YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   <!-- Slick JS -->
@@ -848,17 +821,14 @@
     function toggleMenu() {
       const hamburger = document.querySelector('.hamburger');
       const navMenu = document.getElementById('navMenu');
-      
       hamburger.classList.toggle('active');
       navMenu.classList.toggle('active');
     }
-
     // Close menu when clicking outside
     document.addEventListener('click', function(event) {
       const nav = document.querySelector('.nav');
       const navMenu = document.getElementById('navMenu');
       const hamburger = document.querySelector('.hamburger');
-      
       if (!nav.contains(event.target) && navMenu.classList.contains('active')) {
         hamburger.classList.remove('active');
         navMenu.classList.remove('active');
