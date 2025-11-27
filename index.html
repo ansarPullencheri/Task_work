@@ -191,13 +191,12 @@
         display: inline-block;
       }
       
-      .slider, .home {
+      .slider-container, .home-container {
         margin-top: 50px;
       }
       
-      .slider .card, .home .card {
-        width: 200px !important;
-        height: 300px;
+      .slider-container .card, .home-container .card {
+        height: 340px;
         border-radius: 10px;
         overflow: hidden;
         margin: 0 10px;
@@ -276,14 +275,29 @@
       .slick-prev:before,
       .slick-next:before {
         color: #193837;
+        font-size: 30px;
+      }
+      
+      .slick-dots {
+        bottom: -40px;
       }
       
       .slick-dots li button:before {
         color: #193837;
+        font-size: 10px;
       }
       
       .slick-dots li.slick-active button:before {
         color: #193837;
+      }
+
+      /* Fix for slider spacing */
+      .slick-slide {
+        margin: 0 10px;
+      }
+
+      .slick-list {
+        margin: 0 -10px;
       }
       
       @media (max-width: 992px) {
@@ -326,8 +340,7 @@
           display: none;
         }
         
-        .slider .card, .home .card {
-          width: 180px !important;
+        .slider-container .card, .home-container .card {
           height: 270px;
         }
       }
@@ -399,8 +412,8 @@
         </div>
       </div>
       
-      <div class="slider">
-        <div class="card" style="background-image: url('Layer 16.png');">
+      <div class="slider-container">
+        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=500');">
           <div class="card-overlay"></div>
           <div class="card-content">
             <h5>Residential<br />interior design</h5>
@@ -408,7 +421,7 @@
           </div>
         </div>
 
-        <div class="card" style="background-image: url('Layer 17.png');">
+        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=500');">
           <div class="card-overlay"></div>
           <div class="card-content">
             <h5>Commercial interior design</h5>
@@ -416,7 +429,7 @@
           </div>
         </div>
 
-        <div class="card" style="background-image: url('Layer 18.png');">
+        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=500');">
           <div class="card-overlay"></div>
           <div class="card-content">
             <h5>Furniture and<br />decor selection</h5>
@@ -424,18 +437,18 @@
           </div>
         </div>
 
-        <div class="card" style="background-image: url('Layer 17.png');">
+        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=500');">
           <div class="card-overlay"></div>
           <div class="card-content">
-            <h5>Commercial<br />interior design</h5>
+            <h5>Space Planning</h5>
             <p>Lorem ipsum dolor sit amet,<br />consectetur adipiscing elit, sed do</p>
           </div>
         </div>
 
-        <div class="card" style="background-image: url('Layer 18.png');">
+        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=500');">
           <div class="card-overlay"></div>
           <div class="card-content">
-            <h5>Furniture and<br />decor selection</h5>
+            <h5>Lighting Design</h5>
             <p>Lorem ipsum dolor sit amet,<br />consectetur adipiscing elit, sed do</p>
           </div>
         </div>
@@ -462,7 +475,7 @@
       </div>
       
       <div class="vision-image">
-        <img src="Layer 15.png" alt="Vision" />
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200" alt="Vision" />
       </div>
     </div>
 
@@ -482,12 +495,12 @@
         </div>
       </div>
       
-      <div class="home">
-        <div class="card" style="background-image: url('Layer 11.png');"></div>
-        <div class="card" style="background-image: url('Layer 12.png');"></div>
-        <div class="card" style="background-image: url('Layer 13.png');"></div>
-        <div class="card" style="background-image: url('Layer 17.png');"></div>
-        <div class="card" style="background-image: url('Layer 13.png');"></div>
+      <div class="home-container">
+        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500');"></div>
+        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=500');"></div>
+        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500');"></div>
+        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=500');"></div>
+        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=500');"></div>
       </div>
     </div>
 
@@ -496,7 +509,7 @@
       <div class="container py-5">
         <div class="row">
           <div class="col-md-3 mb-4">
-            <img src="Vector Smart Object (1).png" alt="Logo" style="width: 50%; margin-bottom: 20px;" />
+            <img src="https://via.placeholder.com/100x50/ffffff/193837?text=LOGO" alt="Logo" style="width: 50%; margin-bottom: 20px;" />
             <p style="margin: 0;">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit,
               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ultrices.
@@ -552,21 +565,22 @@
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz4YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
     
     <script>
       $(document).ready(function () {
-        $(".slider").slick({
+        // Initialize services slider
+        $(".slider-container").slick({
           dots: true,
           infinite: true,
           speed: 500,
           slidesToShow: 4,
           slidesToScroll: 1,
           autoplay: true,
-          autoplaySpeed: 2000,
-          arrows: true,
+          autoplaySpeed: 3000,
+          arrows: false,
           responsive: [
             {
               breakpoint: 1024,
@@ -592,15 +606,16 @@
           ]
         });
 
-        $(".home").slick({
+        // Initialize homes slider
+        $(".home-container").slick({
           dots: true,
           infinite: true,
           speed: 500,
           slidesToShow: 4,
           slidesToScroll: 1,
           autoplay: true,
-          autoplaySpeed: 2000,
-          arrows: true,
+          autoplaySpeed: 3000,
+          arrows: false,
           responsive: [
             {
               breakpoint: 1024,
